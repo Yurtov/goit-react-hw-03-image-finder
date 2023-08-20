@@ -92,7 +92,6 @@ export class App extends Component {
         {total && total !== images.length && (
           <Button onClick={this.heandleLoadMore} />
         )}
-        <div style={{ marginTop: '150vh' }} />
         <ScrollToTop smooth />
         <Toaster />
         <GlobalStyle />
