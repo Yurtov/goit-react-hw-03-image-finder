@@ -16,7 +16,6 @@ export class App extends Component {
     images: [],
     page: 1,
     total: null,
-    error: null,
     loading: false,
   };
 
@@ -48,9 +47,7 @@ export class App extends Component {
           total: total,
         });
       } catch (error) {
-        this.setState({
-          error: error,
-        });
+        toast.error(`Oops, ${error}. Please try again.`);
       } finally {
         this.setState({
           loading: false,
