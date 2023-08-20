@@ -29,13 +29,13 @@ export class App extends Component {
       const { query, page } = this.state;
       const indexOfQuery = query.indexOf('/') + 1;
       const valueOfQuery = query.slice(indexOfQuery);
+      if (valueOfQuery === '') {
+        return toast.error(
+          'You cannot send an empty request, please write something'
+        );
+      }
       try {
         this.setState({ loading: true });
-        if (valueOfQuery === '') {
-          return toast.error(
-            'You cannot send an empty request, please write something'
-          );
-        }
         const { hits, total } = await fetchImage(page, valueOfQuery);
 
         if (total === 0 || !hits) {
